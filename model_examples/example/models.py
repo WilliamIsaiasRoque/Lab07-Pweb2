@@ -10,3 +10,6 @@ class Simple(models.Model):
 
 class DateExample(models.Model):
     the_date = models.DateTimeField()    
+
+class NullExample(models.Model):
+    col = models.CharField(max_length=10, blank=True, null=True)
