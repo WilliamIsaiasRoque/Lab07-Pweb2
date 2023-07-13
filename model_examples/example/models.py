@@ -13,3 +13,10 @@ class DateExample(models.Model):
 
 class NullExample(models.Model):
     col = models.CharField(max_length=10, blank=True, null=True)
+
+class Language(models.Model):
+    name = models.CharField(max_length=10)
+
+class Framework(models.Model):
+    name = models.CharField(max_length=10)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)    
