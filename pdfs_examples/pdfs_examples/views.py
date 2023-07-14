@@ -6,11 +6,12 @@ from .utils import render_to_pdf
 
 class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
+        template = get_template('pdf/invoice.html')
         context = {
             'invoice_id': 123456,
             'customer_name': 'Ricardo Milos',
-            'amount': '1981.99',
+            'amount': 1981.99,
             'today': 'Today',
         }
-        html = render_to_pdf(context)
+        html = template.render(context)
         return HttpResponse(html)
